@@ -72,18 +72,18 @@ body {
     background: linear-gradient(135deg, #a777e3, #6e8efb);
 }
 
-.register {
+.register, .login {
     text-align: center;
     margin-top: 1rem;
 }
 
-.register a {
+.register a, .login a {
     color: #6e8efb;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.register a:hover {
+.register a:hover, .login a:hover {
     color: #a777e3;
 }
 
