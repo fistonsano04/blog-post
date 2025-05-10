@@ -66,8 +66,11 @@ body {
 }
 
 .blog-container {
-    max-width: 800px;
+    padding: 2rem;
     margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
 }
 
 .post-card {

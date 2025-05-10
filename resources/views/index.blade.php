@@ -46,7 +46,7 @@
         const posts = Array.from({ length: 50 }, (_, i) => ({
             title: `Blog Post Title ${i + 1}`,
             content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Proin ac consequat arcu. Nulla facilisi. Integer nec eros nec nulla tincidunt tincidunt.`,
-            image: 'https://via.placeholder.com/800x400'
+            image: 'https://i.cbc.ca/1.7024306.1731448140!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cbc-explore-promo.jpg'
         }));
 
         const postsPerPage = 5;
