@@ -90,6 +90,7 @@ body {
 .post-card img {
     width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
 .post-card-content {
@@ -131,4 +132,14 @@ body {
 .pagination button.disabled {
     background: #ccc;
     cursor: not-allowed;
+}
+.read-more-btn{
+    background: #A99619;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }

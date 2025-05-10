@@ -44,9 +44,10 @@
 
     <script>
         const posts = Array.from({ length: 50 }, (_, i) => ({
+            id: i + 1,
             title: `Blog Post Title ${i + 1}`,
             content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Proin ac consequat arcu. Nulla facilisi. Integer nec eros nec nulla tincidunt tincidunt.`,
-            image: 'https://i.cbc.ca/1.7024306.1731448140!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cbc-explore-promo.jpg'
+            image: `https://picsum.photos/seed/${Math.random()}/300/200`
         }));
 
         const postsPerPage = 5;
@@ -68,6 +69,7 @@
                     <div class="post-card-content">
                         <h2>${post.title}</h2>
                         <p>${post.content}</p>
+                        <button class="read-more-btn" onclick="openFullPost(${post.id})">Read More</button>
                     </div>
                 `;
                 blogContainer.appendChild(postCard);
@@ -91,6 +93,13 @@
                     renderPagination();
                 });
                 pagination.appendChild(button);
+            }
+        }
+
+        function openFullPost(postId) {
+            const post = posts.find(p => p.id === postId);
+            if (post) {
+                alert(`Full Post:\n\nTitle: ${post.title}\n\nContent: ${post.content}`);
             }
         }
 
