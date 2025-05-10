@@ -7,7 +7,7 @@
     <title>Interactive Blog Post</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body>
@@ -35,77 +35,52 @@
     </header>
 
     <div class="blog-container" id="blog-container">
-        <!-- Posts will be dynamically inserted here -->
+
+        <div class="post-card">
+            <div class="poster">
+                <p class="post-category"><strong>Category:</strong> Technology</p>
+                <img src="https://picsum.photos/seed/1/300/200" alt="Post Image">
+            </div>
+            <div class="post-card-content">
+                <h2>Blog Post Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Proin ac
+                    consequat arcu. Nulla facilisi. Integer nec eros nec nulla tincidunt tincidunt.</p>
+                <div class="post-details">
+
+                    <p class="post-tags"><strong>Tags:</strong> <span>Innovation</span>, <span>AI</span>,
+                        <span>Future</span>
+                    </p>
+                    <p class="post-category"><strong>Post by:</strong> John Doe</p>
+                </div>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+        </div>
+        <div class="post-card">
+            <div class="poster">
+                <p class="post-category"><strong>Category:</strong> Technology</p>
+                <img src="https://picsum.photos/seed/1/300/200" alt="Post Image">
+            </div>
+            <div class="post-card-content">
+                <h2>Blog Post Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Proin ac
+                    consequat arcu. Nulla facilisi. Integer nec eros nec nulla tincidunt tincidunt.</p>
+                <div class="post-details">
+
+                    <p class="post-tags"><strong>Tags:</strong> <span>Innovation</span>, <span>AI</span>,
+                        <span>Future</span>
+                    </p>
+                    <p class="post-category"><strong>Post by:</strong> John Doe</p>
+                </div>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+        </div>
     </div>
 
     <div class="pagination" id="pagination">
         <!-- Pagination buttons will be dynamically inserted here -->
     </div>
 
-    <script>
-        const posts = Array.from({ length: 50 }, (_, i) => ({
-            id: i + 1,
-            title: `Blog Post Title ${i + 1}`,
-            content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Proin ac consequat arcu. Nulla facilisi. Integer nec eros nec nulla tincidunt tincidunt.`,
-            image: `https://picsum.photos/seed/${Math.random()}/300/200`
-        }));
 
-        const postsPerPage = 5;
-        let currentPage = 1;
-
-        function renderPosts() {
-            const blogContainer = document.getElementById('blog-container');
-            blogContainer.innerHTML = '';
-
-            const start = (currentPage - 1) * postsPerPage;
-            const end = start + postsPerPage;
-            const currentPosts = posts.slice(start, end);
-
-            currentPosts.forEach(post => {
-                const postCard = document.createElement('div');
-                postCard.classList.add('post-card');
-                postCard.innerHTML = `
-                    <img src="${post.image}" alt="${post.title}">
-                    <div class="post-card-content">
-                        <h2>${post.title}</h2>
-                        <p>${post.content}</p>
-                        <button class="read-more-btn" onclick="openFullPost(${post.id})">Read More</button>
-                    </div>
-                `;
-                blogContainer.appendChild(postCard);
-            });
-        }
-
-        function renderPagination() {
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
-
-            const totalPages = Math.ceil(posts.length / postsPerPage);
-
-            for (let i = 1; i <= totalPages; i++) {
-                const button = document.createElement('button');
-                button.textContent = i;
-                button.classList.add(i === currentPage ? 'disabled' : '');
-                button.disabled = i === currentPage;
-                button.addEventListener('click', () => {
-                    currentPage = i;
-                    renderPosts();
-                    renderPagination();
-                });
-                pagination.appendChild(button);
-            }
-        }
-
-        function openFullPost(postId) {
-            const post = posts.find(p => p.id === postId);
-            if (post) {
-                alert(`Full Post:\n\nTitle: ${post.title}\n\nContent: ${post.content}`);
-            }
-        }
-
-        renderPosts();
-        renderPagination();
-    </script>
 </body>
 
 </html>

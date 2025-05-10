@@ -107,7 +107,34 @@ body {
     line-height: 1.6;
     color: #555;
 }
+.post-details{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
 
+}
+.poster {
+    position: relative;
+}
+
+.poster img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+a{
+    text-decoration: none;
+}
+.poster p {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    margin: 0;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+}
 .pagination {
     display: flex;
     justify-content: center;
