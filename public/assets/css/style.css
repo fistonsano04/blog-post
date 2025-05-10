@@ -8,7 +8,7 @@ body {
 .blog-header {
     background: linear-gradient(to right, #6a11cb, #2575fc);
     color: white;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
 }
 .blog-header {
@@ -43,6 +43,14 @@ body {
     text-decoration: none;
     transition: background 0.3s ease;
     font-weight: bold;
+}
+.blog-header .auth a:nth-child(1):hover {
+    border: 2px solid #ffdd00;
+    background: none;
+}
+.blog-header .auth a:nth-child(2):hover {
+    border: 2px solid #000;
+    background: none;
 }
 .blog-header .auth a:nth-child(2) {
     background: #000;
