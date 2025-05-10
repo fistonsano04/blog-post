@@ -7,96 +7,31 @@
     <title>Interactive Blog Post</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
-        .blog-header {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .blog-header h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-
-        .blog-container {
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .post-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .post-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .post-card img {
-            width: 100%;
-            height: auto;
-        }
-
-        .post-card-content {
-            padding: 1.5rem;
-        }
-
-        .post-card-content h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .post-card-content p {
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .pagination button {
-            background: #6a11cb;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            margin: 0 0.25rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .pagination button:hover {
-            background: #2575fc;
-        }
-
-        .pagination button.disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-    </style>
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body>
     <header class="blog-header">
-        <h1>Interactive Blog Post</h1>
+        <div class="logo">
+            <a href="{{ route('home') }}">
+                <span><span class="highlight">B</span>log</span>
+            </a>
+        </div>
+        <div class="title">
+            <h2>Simple Blog Post</h2>
+        </div>
+        <div class="auth">
+            @if (Auth::check())
+                <p>Welcome, {{ Auth::user()->name }}</p>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+            @endif
+        </div>
     </header>
 
     <div class="blog-container" id="blog-container">
