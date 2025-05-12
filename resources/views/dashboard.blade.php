@@ -15,6 +15,7 @@
                         <th>Category</th>
                         <th>Date</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,15 @@
                                 <td>{{ $blog->category }}</td>
                                 <td>{{ $blog->created_at->format('Y-m-d') }}</td>
                                 <td>{{ $blog->is_published }}</td>
+                                <td>
+                                    <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-primary">View</a>
+                                    <a href="{{ route('edit-post', $blog->id) }}" class="btn btn-secondary">Edit</a>
+                                    <form action="{{ route('delete-post', $blog->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     @endif
@@ -80,9 +90,6 @@
                 <input type="hidden" id="tags" name="tags">
             </div>
 
-            <script>
-
-            </script>
 
             <button type="submit" class="btn btn-primary">Add Post</button>
             </form>

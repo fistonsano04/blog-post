@@ -20,6 +20,7 @@
         <button type="submit" class="btn">Login</button>
     </form>
     <div class="register">
-        <a href="{{ route('register') }}">Sign Up?</a>
+        <a href="{{ route('register') }}">Sign Up?</a><br>
+        <a href="{{ route('home') }}">Back Home</a>
     </div>
 @endsection
