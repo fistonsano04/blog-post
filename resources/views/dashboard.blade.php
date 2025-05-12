@@ -68,8 +68,8 @@
             <div class="form-group">
                 <label for="status" class="form-label">Status</label>
                 <select id="status" name="status" class="form-select" required>
-                <option value="draft">Draft</option>
-                <option value="published">Published</option>
+                <option value="no">Draft</option>
+                <option value="yes">Published</option>
                 </select>
             </div>
             <div class="form-group">
