@@ -33,7 +33,7 @@ body {
     margin: 0;
 }
 
-.blog-container .box-poster{
+.blog-container .box-poster {
     padding: 2rem;
     margin: 2rem auto;
     display: grid;
@@ -140,6 +140,85 @@ a {
 .auth .profile p a {
     background-color: none;
 }
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    background-color: #f4f4f4;
+}
+.add-post {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus,
+.search-bar input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
 .table-container {
     width: 100%;
     overflow-x: auto;
@@ -150,7 +229,7 @@ a {
 }
 
 .search-bar input {
-    width: 70%;
+    width: 50%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -158,7 +237,7 @@ a {
 }
 
 .responsive-table {
-    width: 70%;
+    width: 50%;
     border-collapse: collapse;
 }
 
@@ -184,4 +263,33 @@ a {
     margin-top: 15px;
     display: flex;
     justify-content: center;
+}
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.tag {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.remove-tag {
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tagInput {
+    border: none;
+    outline: none;
+    flex: 1;
 }
