@@ -9,12 +9,15 @@ use Illuminate\Support\Facades\Log;
 
 class BlogController extends Controller
 {
-    public function index()
+
+
+    public function admin()
     {
         $blogs = blog::with('user')
             ->paginate(10);
         return view('dashboard', compact('blogs'));
     }
+
     public function store(Request $request)
     {
         try {
@@ -47,8 +50,12 @@ class BlogController extends Controller
             return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (\Exception $e) {
             Log::error('An error occurred while creating blog post.');
-
         }
-}
+    }
 
+    public function show($id)
+    {
+        $post = blog::with('user')->findOrFail($id);
+        return view('show', compact('post'));
+    }
 }
