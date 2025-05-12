@@ -27,11 +27,11 @@
                             <tr>
                                 <td>{{ $blog->title }}</td>
                                 <td>{{ Str::limit($blog->content, 50) }}</td>
-                                <td>{{ $blog->author->name }}</td>
+                                <td>{{ $blog->user->name }}</td>
                                 <td><img src="{{ $blog->image }}" alt="Post Image" class="post-image"></td>
                                 <td>{{ $blog->category }}</td>
                                 <td>{{ $blog->created_at->format('Y-m-d') }}</td>
-                                <td>{{ $blog->status }}</td>
+                                <td>{{ $blog->is_published }}</td>
                             </tr>
                         @endforeach
                     @endif
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
                 <label for="status" class="form-label">Status</label>
-                <select id="status" name="status" class="form-select" required>
+                <select id="status" name="is_published" class="form-select" required>
                 <option value="no">Draft</option>
                 <option value="yes">Published</option>
                 </select>

@@ -11,8 +11,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = blog::with('author')
-            ->where('is_published', true)
+        $blogs = blog::with('user')
             ->paginate(10);
         return view('dashboard', compact('blogs'));
     }

@@ -9,15 +9,15 @@ class blog extends Model
     protected $fillable = [
         'title',
         'content',
-        'author',
+        'user_id',
         'image',
         'category',
         'tags',
         'is_published',
     ];
 
-    public function author()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'author', 'id');
+        return $this->belongsTo(User::class);
     }
 }
