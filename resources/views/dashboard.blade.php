@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="add-post">
-            <form action="" method="post" class="styled-form">
+            <form action="{{ route('new-post') }}" method="post" class="styled-form">
             @csrf
             <h2 class="form-title">Add New Post</h2>
             <div class="form-group">
@@ -54,14 +54,6 @@
             <div class="form-group">
                 <label for="content" class="form-label">Content</label>
                 <textarea id="content" name="content" class="form-textarea" placeholder="Write your content here..." required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="author" class="form-label">Author</label>
-                <select id="author" name="author" class="form-select" required>
-                @foreach ($authors as $author)
-                    <option value="{{ $author->id }}">{{ $author->name }}</option>
-                @endforeach
-                </select>
             </div>
             <div class="form-group">
                 <label for="image" class="form-label">Image URL</label>
@@ -89,7 +81,7 @@
             </div>
 
             <script>
-              
+
             </script>
 
             <button type="submit" class="btn btn-primary">Add Post</button>
