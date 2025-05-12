@@ -2,7 +2,13 @@
 
 @section('content')
     <h2>Login</h2>
-    <form id="loginForm">
+    <form id="loginForm" method="POST" action="{{ route('login') }}">
+        @csrf
+        @if (session('error'))
+            <div class="toast-message" id="toastMessage">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>

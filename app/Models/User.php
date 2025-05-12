@@ -32,7 +32,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    public function author()
+    {
+        return $this->hasMany(blog::class, 'author', 'id');
+    }
     /**
      * Get the attributes that should be cast.
      *

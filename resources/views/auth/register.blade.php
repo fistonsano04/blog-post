@@ -1,6 +1,12 @@
 @extends('layouts.auth')
 
 @section('content')
+    @if (session('error'))
+        <div class="toast-message" id="toastMessage">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <h2>Register</h2>
     <form id="registerForm" method="POST" action="{{ route('register') }}">
         @csrf
@@ -25,4 +31,7 @@
     <div class="login">
         <a href="{{ route('login') }}">Already have an account? Login</a>
     </div>
+
+
+
 @endsection

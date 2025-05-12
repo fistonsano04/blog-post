@@ -27,39 +27,7 @@ body {
 .blog-header .logo a .highlight {
     color: #ffdd00;
 }
-.blog-header .auth {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.blog-header .auth a {
-    color: #ffdd00;
-}
-.blog-header .auth a:nth-child(1) {
-    background: #ffff;
-    padding: 12px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-    font-weight: bold;
-}
-.blog-header .auth a:nth-child(1):hover {
-    border: 2px solid #ffdd00;
-    background: none;
-}
-.blog-header .auth a:nth-child(2):hover {
-    border: 2px solid #000;
-    background: none;
-}
-.blog-header .auth a:nth-child(2) {
-    background: #000;
-    padding: 12px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-    font-weight: bold;
-}
+
 .blog-header h1 {
     font-size: 3rem;
     margin: 0;
@@ -169,4 +137,8 @@ a{
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
+}
+.auth .profile p a{
+background-color:none;
+
 }
