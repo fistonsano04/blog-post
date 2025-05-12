@@ -33,7 +33,7 @@ body {
     margin: 0;
 }
 
-.blog-container {
+.blog-container .box-poster{
     padding: 2rem;
     margin: 2rem auto;
     display: grid;
@@ -75,10 +75,9 @@ body {
     line-height: 1.6;
     color: #555;
 }
-.post-details{
-    display:grid;
+.post-details {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-
 }
 .poster {
     position: relative;
@@ -89,7 +88,7 @@ body {
     width: 100%;
     height: auto;
 }
-a{
+a {
     text-decoration: none;
 }
 .poster p {
@@ -128,8 +127,8 @@ a{
     background: #ccc;
     cursor: not-allowed;
 }
-.read-more-btn{
-    background: #A99619;
+.read-more-btn {
+    background: #a99619;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -138,7 +137,51 @@ a{
     cursor: pointer;
     transition: background 0.3s ease;
 }
-.auth .profile p a{
-background-color:none;
+.auth .profile p a {
+    background-color: none;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
 
+.search-bar {
+    margin-bottom: 15px;
+}
+
+.search-bar input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.responsive-table {
+    width: 70%;
+    border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.responsive-table th {
+    background-color: #f4f4f4;
+}
+
+.post-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.pagination {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
 }
