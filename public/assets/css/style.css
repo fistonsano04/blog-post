@@ -220,38 +220,119 @@ a {
     background-color: #0056b3;
 }
 .table-container {
-    width: 100%;
-    overflow-x: auto;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar {
     margin-bottom: 15px;
+    text-align: right;
 }
 
-.search-bar input {
-    width: 50%;
+.search-input {
     padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.responsive-table {
-    width: 50%;
-    border-collapse: collapse;
-}
-
-.responsive-table th,
-.responsive-table td {
-    padding: 10px;
-    text-align: left;
+    width: 100%;
+    max-width: 300px;
     border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
-.responsive-table th {
-    background-color: #f4f4f4;
+.search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
 
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.modern-table thead {
+    background: #007bff;
+    color: #fff;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.modern-table tr:hover {
+    background: #f1f1f1;
+    transition: background 0.3s ease;
+}
+
+.post-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-badge.published {
+    background: #28a745;
+    color: #fff;
+}
+
+.status-badge.draft {
+    background: #ffc107;
+    color: #fff;
+}
+
+.action-btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+.no-records {
+    color: #999;
+    font-style: italic;
+}
+
+.pagination {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.pagination .page-link {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #007bff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background: #007bff;
+    color: #fff;
+}
 .post-image {
     width: 50px;
     height: 50px;

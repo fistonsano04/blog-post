@@ -3,55 +3,59 @@
     <div class="dashboard">
         <div class="table-container">
             <div class="search-bar">
-                <input type="text" id="search" placeholder="Search posts..." onkeyup="filterTable()">
+            <input type="text" id="search" placeholder="Search posts..." onkeyup="filterTable()" class="search-input">
             </div>
-            <table id="postsTable" class="responsive-table">
-                <thead>
+            <table id="postsTable" class="responsive-table modern-table">
+            <thead>
+                <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Author</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if ($blogs->isEmpty())
+                <tr>
+                    <td colspan="8" class="text-center no-records">No records found</td>
+                </tr>
+                @else
+                @foreach ($blogs as $blog)
                     <tr>
-                        <th>Title</th>
-                        <th>Content</th>
-                        <th>Author</th>
-                        <th>Image</th>
-                        <th>Category</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Actions</th>
+                    <td>{{ $blog->title }}</td>
+                    <td>{{ Str::limit($blog->content, 50) }}</td>
+                    <td>{{ $blog->user->name }}</td>
+                    <td><img src="{{ $blog->image }}" alt="Post Image" class="post-image"></td>
+                    <td>{{ $blog->category }}</td>
+                    <td>{{ $blog->created_at->format('Y-m-d') }}</td>
+                    <td>
+                        <span class="status-badge {{ $blog->is_published == 'yes' ? 'published' : 'draft' }}">
+                        {{ ucfirst($blog->is_published) }}
+                        </span>
+                    </td>
+                    <td>
+                        <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-primary action-btn">View</a>
+                        <a href="{{ route('edit-post', $blog->id) }}" class="btn btn-secondary action-btn">Edit</a>
+                        <form action="{{ route('delete-post', $blog->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger action-btn">Delete</button>
+                        </form>
+                    </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @if ($blogs->isEmpty())
-                        <tr>
-                            <td colspan="7" class="text-center">No records found</td>
-                        </tr>
-                    @else
-                        @foreach ($blogs as $blog)
-                            <tr>
-                                <td>{{ $blog->title }}</td>
-                                <td>{{ Str::limit($blog->content, 50) }}</td>
-                                <td>{{ $blog->user->name }}</td>
-                                <td><img src="{{ $blog->image }}" alt="Post Image" class="post-image"></td>
-                                <td>{{ $blog->category }}</td>
-                                <td>{{ $blog->created_at->format('Y-m-d') }}</td>
-                                <td>{{ $blog->is_published }}</td>
-                                <td>
-                                    <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-primary">View</a>
-                                    <a href="{{ route('edit-post', $blog->id) }}" class="btn btn-secondary">Edit</a>
-                                    <form action="{{ route('delete-post', $blog->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
-
-                </tbody>
+                @endforeach
+                @endif
+            </tbody>
             </table>
             <div class="pagination">
-                {{ $blogs->links() }}
+            {{ $blogs->links() }}
             </div>
         </div>
+
         <div class="add-post">
             <form action="{{ route('new-post') }}" method="post" class="styled-form">
             @csrf
