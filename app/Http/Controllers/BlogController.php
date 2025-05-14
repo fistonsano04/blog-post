@@ -20,7 +20,7 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        $validate = $request->validate([
+         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'category' => 'required|string|max:255',
