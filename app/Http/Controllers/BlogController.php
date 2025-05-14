@@ -20,37 +20,26 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'title' => 'required|string|max:255',
-                'content' => 'required|string',
-                'category' => 'required|string|max:255',
-                'tags' => 'required|string|max:255',
-                'image' => 'required|string|max:255',
-                'is_published' => 'required|string|in:yes,no',
-            ]);
+        $validate = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'category' => 'required|string|max:255',
+            'tags' => 'required|string|max:255',
+            'image' => 'required|string|max:255',
+            'is_published' => 'required|string|in:yes,no',
 
-            blog::create([
-                'title' => $validatedData['title'],
-                'content' => $validatedData['content'],
-                'is_published' => $validatedData['is_published'],
-                'category' => $validatedData['category'],
-                'tags' => $validatedData['tags'],
-                'image' => $validatedData['image'],
-                'author' => auth()->id(),
-            ]);
-
-            Log::info('Blog post created successfully.', ['user_id' => auth()->id()]);
-            return redirect()->route('dashboard')->with('success', 'Blog post created successfully.');
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            Log::error('Validation failed while creating blog post.', [
-                'errors' => $e->errors(),
-                'user_id' => auth()->id(),
-            ]);
-            return redirect()->back()->withErrors($e->errors())->withInput();
-        } catch (\Exception $e) {
-            Log::error('An error occurred while creating blog post.');
-        }
+        ]);
+        $blog = new blog();
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+        $blog->category = $request->category;
+        $blog->tags = $request->tags;
+        $blog->image = $request->image;
+        $blog->is_published = $request->is_published;
+        $blog->user_id = auth()->id();
+        $blog->save();
+        Log::info('Blog post created successfully.', ['user_id' => auth()->id()]);
+        return redirect()->route('dashboard')->with('success', 'Blog post created successfully.');
     }
 
     public function show($id)
